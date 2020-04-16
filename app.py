@@ -12,9 +12,9 @@
 # Importar bibliotecas
 # Agregar las bibliotecas necesarias dependiendo de las necesidades del proyecto
 
-import os
+# import os
 import dash
-import dash_auth
+# import dash_auth
 import dash_core_components as dcc  # Componentes principales de dash (dropdowns, sliders, etc.)
 import dash_html_components as html  # Componentes html para usar en dash
 import pandas as pd
@@ -23,11 +23,11 @@ import plotly.express as px
 import json
 
 # Especificar las credenciales para acceder al tablero como variables de entorno
-VALID_USERNAME_PASSWORD_PAIRS = {os.environ['USER']: os.environ['PASSWORD']}
+# VALID_USERNAME_PASSWORD_PAIRS = {os.environ['USER']: os.environ['PASSWORD']}
 
 # Inicializar la app de dash
 app = dash.Dash(__name__)
-auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
+# auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
 
 # ---------------------------------------------------------------------------------------------------------------------#
 # --------------------------------------------------  HTML ------------------------------------------------------------#
