@@ -48,7 +48,9 @@ app.index_string = '''
     <!-- Cambiar el título de la app (el que aparece en la pestaña del navegador) -->
     <title>Título</title>
     
-    <!-- Agregar un favicon (en el folder de assets) a la app (por default está el de dash) -->
+    <!-- Agregar un favicon (en el folder de assets) a la app (por default está el de dash) y colocarlo de la-->
+    <!-- siguiente manera: -->
+    <!-- {%favicon%}-->
     {%css%}
 </head>
 <body>
