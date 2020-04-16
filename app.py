@@ -48,7 +48,7 @@ app.index_string = '''
     <!-- Cambiar el título de la app (el que aparece en la pestaña del navegador) -->
     <title>Título</title>
     
-    <!-- Agregar un favicon (en el folder de assets) a la app (por default aquí está el de conacyt) -->
+    <!-- Agregar un favicon (en el folder de assets) a la app (por default está el de dash) -->
     {%favicon%}
     {%css%}
 </head>
@@ -210,8 +210,10 @@ fig_mapa_densidad = go.Figure(data=data_mapa_densidad, layout=layout_mapa_densid
 
 # Construir layout de la app e incluir las gráficas como figure
 app.layout = html.Div([html.Div([html.H1('Título del tablero', className='a', id='a'),
-                                 html.Img(src=app.get_asset_url('conacyt.png'), alt='logo de conacyt',
-                                          className='logo')], className='header', id='header'),
+                                 html.A([html.Img(src=app.get_asset_url('GitHub_Logo.png'), alt='logo github',
+                                                  className='logo')],
+                                        href='https://github.com/paupradel/template_tableros')], className='header',
+                                id='header'),
                        html.Div([html.Div([html.Div([dcc.Graph(figure=figura_tabla)], className='four columns'),
                                            html.Div([dcc.Graph(figure=figura_barras)], className='eight columns')],
                                           className='row'),
