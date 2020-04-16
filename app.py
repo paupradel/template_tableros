@@ -49,7 +49,6 @@ app.index_string = '''
     <title>Título</title>
     
     <!-- Agregar un favicon (en el folder de assets) a la app (por default está el de dash) -->
-    {%favicon%}
     {%css%}
 </head>
 <body>
