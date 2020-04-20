@@ -66,7 +66,9 @@ mientras que en un dispositivo móvil las gráficas se alínean una por una vert
 
 ![tablero demo móvil 1](./assets/tablero_mobile_2.png)
 
-![tablero demo móvil 2](./assets/tablero_mobile_3.png)
+![tablero demo móvil 2](./assets/tablero_mobile_1.png)
+
+![tablero demo móvil 3](./assets/tablero_mobile_3.png)
 
 
 ## Contacto
