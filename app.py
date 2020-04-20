@@ -1,11 +1,11 @@
-# Este script contiene un demo de tablero de dash, incluyendo las siguientes gráficas:
+# Este script contiene un demo de tablero de dash, incluyendo las siguientes gráficas y visualizaciones:
 # - Tabla
 # - De barras
 # - De líneas
 # - De pie
 # - Mapa coroplético
 
-# Cada uno de estas gráficas y detalles de su construcción e inclusión en este tablero pueden ser encontradas en el
+# Cada una de estas gráficas y detalles de su construcción e inclusión en este tablero pueden ser encontradas en el
 # notebook de jupyter en la carpeta /chart_demos de este proyecto.
 
 
@@ -62,8 +62,9 @@ app.index_string = '''
 </html>'''
 
 # -------------------------------------------------------------------------------------------------------------------- #
-# -------------------------------------------- DATAFRAMES ------------------------------------------------------------ #
+# -------------------------------------------------- DATAFRAMES ------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
+
 
 # Dataframe del que se obtienen los datos a graficar y reestructuración de algunos datos
 df = pd.read_csv('chart_demos/data/df_housing.csv')
@@ -71,13 +72,13 @@ df = pd.read_csv('chart_demos/data/df_housing.csv')
 # Dataframe de datos de población que se usa para el mapa coroplético
 df_mexico = pd.read_csv('chart_demos/data/mexico_edos.csv')
 
-# ---------------------------------------------------------------------------------------------------------------------#
-# --------------------------------------------- GRÁFICAS DE PLOTLY ---------------------------------------------------#
-# ---------------------------------------------------------------------------------------------------------------------#
+# -------------------------------------------------------------------------------------------------------------------- #
+# --------------------------------------------- GRÁFICAS DE PLOTLY --------------------------------------------------- #
+# -------------------------------------------------------------------------------------------------------------------- #
 
 # El detalle de la construcción de las siguientes gráficas se puede encontrar en el notebook demos_graficas.ipynb
 
-# -------------------------------------------------TABLA---------------------------------------------------------------#
+# ------------------------------------------------ TABLA ------------------------------------------------------------- #
 
 # Se obtiene en número de ventas que se realizaron cada año contando el número de registros existentes.
 NumSales = df.groupby('YrSold').size().tolist()
@@ -86,7 +87,7 @@ NumSales = df.groupby('YrSold').size().tolist()
 YrSold = df['YrSold'].unique().tolist()
 YrSold.sort()
 
-# ------- --Definir encabezados y colores ------------#
+# ---------------- Definir encabezados y colores ------------#
 # Encabezado de la tabla
 tabla_encabezado = ['Año de venta', 'Número de ventas']
 
@@ -123,7 +124,7 @@ layout_tabla = go.Layout(paper_bgcolor='#f5f5f5',
 figura_tabla = {'data': [data_tabla],
                 'layout': layout_tabla}
 
-# ---------------------------------------------GRÁFICA DE BARRAS ------------------------------------------------------#
+# -------------------------------------------- GRÁFICA DE BARRAS ----------------------------------------------------- #
 
 # Valores categóricos de las condiciones de venta
 condicionVenta = df['SaleCondition'].unique().tolist()
@@ -135,18 +136,18 @@ condicionVenta.sort()
 # Cantidad de casas con determinada condición de venta
 numCondicionVenta = df.groupby('SaleCondition').size().tolist()
 
-# -------- Asignar datos y construir layout de gráfica de barras --------#
+# --- Asignar datos y construir layout de gráfica de barras --#
 data_barras = go.Bar(x=condicionVenta,
                      y=numCondicionVenta,
                      marker_color='purple')
 
 layout_barras = go.Layout(xaxis={'categoryorder': 'total descending'})
 
-# ------------ Construir la figura que se muestra en dash ---------------#
+# ---- Construir la figura que se muestra en dash ------------#
 figura_barras = {'data': [data_barras],
                  'layout': layout_barras}
 
-# --------------------------------------------- GRÁFICA DE PIE-------------------------------------------------------- #
+# --------------------------------------------- GRÁFICA DE PIE ------------------------------------------------------- #
 
 # Se grafica el pie, usando las columnas adecuadas y los valores de layout también se determinan aquí
 figura_pie = px.pie(df,
@@ -171,7 +172,7 @@ data_lineas = go.Scatter(x=df_lineas['YrSold'],
 layout_lineas = go.Layout(title={'text': '<b>Importe generado por año</b>'},
                           xaxis={'nticks': 5})
 
-# ----------------- Construir la figura que se muestra en dash -----------------------------#
+# ---- Construir la figura que se muestra en dash ------------ #
 figura_lineas = {'data': [data_lineas],
                  'layout': layout_lineas}
 
@@ -187,7 +188,7 @@ locations = df_mexico['id'].tolist()
 # Asignaciones de colores de la densidad poblacional.
 z_densidad = df_mexico['densidad_poblacion'].tolist()
 
-# ----------------- Asignar datos y construir layout del mapa --------------------------#
+# ---- Asignar datos y construir layout del mapa -------------- #
 data_mapa_densidad = go.Choroplethmapbox(geojson=jdata,
                                          locations=locations,
                                          z=z_densidad,
@@ -202,11 +203,11 @@ layout_mapa_densidad = go.Layout(mapbox={'center': {'lat': 23.6345005,
                                          't': 5,
                                          'b': 15}, )
 
-# ----------------- Construir la figura que se muestra en dash -----------------------------#
+# ----- Construir la figura que se muestra en dash ------------- #
 fig_mapa_densidad = go.Figure(data=data_mapa_densidad, layout=layout_mapa_densidad)
 
 # -------------------------------------------------------------------------------------------------------------------- #
-# ----------------------------------------------LAYOUT DEL TABLERO---------------------------------------------------- #
+# --------------------------------------------- LAYOUT DEL TABLERO --------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 
 # Construir layout de la app e incluir las gráficas como figure
