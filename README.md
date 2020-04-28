@@ -13,7 +13,7 @@ Uno de los principales objetivos de este proyecto fué constrtuir un tablero res
 en dispositivos móviles como los teléfonos inteligentes. Para ello se usaron estilos de ```CSS``` basados en [esta guía 
 de estilo](https://codepen.io/chriddyp/pen/bWLwgP) creada por [Chris Parmer](https://github.com/chriddyp).
 
-Una explicación más detallada se puede encontrar en la [Wiki](https://github.com/paupradel/template_tableros/wiki) de este proyecto.
+Una explicación más detallada se puede encontrar en la [Wiki](https://gitlab.ccd.conacyt.mx/analisis/template_tableros/wikis/Home) de este proyecto.
 
 
 ### 1.1 Métodos usados
